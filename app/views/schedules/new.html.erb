@@ -1,0 +1,62 @@
+<!-- app/views/schedules/new.html.erb -->
+<h1>New Schedule</h1>
+
+<%= form_with model: @schedule, url: schedules_path, local: true do |form| %>
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+      <% @schedule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div>
+        <%= form.label :flight_name %>
+        <%= form.text_field  :flight_name %>
+    </div>
+
+     <div>
+        <%= form.label :port_number %>
+        <%= form.text_field  :port_number %>
+    </div>
+
+    
+
+  <div class="field">
+    <%= form.label :flight_id %>
+    <%= form.select :flight_id, options_for_select(Flight.all.map {|flight| [flight.flight_name, flight.id]}, form.object.id) %>
+  </div>
+  <div class="field">
+    <%= form.label :port_id %>
+    <%# <%= f.select :role, User.roles.keys.map{|role| [role.humanize,role]} %> 
+
+     <%= form.select :port_id, options_for_select(Port.all.map {|port| [port.port_number, port.id]}, form.object.id) %> 
+    <%# onchange: 'getMaxCapacity()' %> 
+
+    <%# <%= form.select :port_id, Schedule.ports.keys.map{|port| port.} :id, :name, prompt: true %> 
+  </div> 
+  <!--<div class="field">
+    <%= form.label :manager_id %>
+    <%= form.select :manager_id, options_for_select(Manager.all.map {|m| [m.id]}, form.object.id) %>
+  </div>-->
+
+  <div class="field">
+    <%= form.label :arrival_time %>
+    <%= form.datetime_local_field :arrival_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :departure_time %>
+    <%= form.datetime_local_field :departure_time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create Schedule" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", schedules_path %>

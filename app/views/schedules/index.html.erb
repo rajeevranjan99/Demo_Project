@@ -1,0 +1,32 @@
+<!-- app/views/schedules/index.html.erb -->
+<h1>Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flight_Name</th>
+      <th>Port_Number</th>
+      <th>Flight_id</th>
+      <th>Port_id</th>
+      <th>Arrival Time</th>
+      <th>Departure Time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.flight_name %></td>
+        <td><%= schedule.port_number %></td>
+        <td><%= schedule.flight_id %></td>
+        <td><%= schedule.port_id %></td>
+        <td><%= schedule.arrival_time %></td>
+        <td><%= schedule.departure_time %></td>
+        <td><%= link_to "Edit", edit_schedule_path(schedule) %></td>
+         
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New Schedule", new_schedule_path %>

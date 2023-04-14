@@ -1,0 +1,12 @@
+<h1>Show the port</h1>
+
+<p><%= @port.port_number %></p>
+
+<ul>
+  <li><%= link_to "Home", ports_path(@port) %></li>
+  <li><%= link_to "Edit", edit_port_path(@port) %></li>
+  <li><%= link_to "Destroy", port_path(@port), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure ?"
+                  } %></li>
+</ul>

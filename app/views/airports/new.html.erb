@@ -1,0 +1,14 @@
+<h1>airport new page</h1>
+<%= form_with model: @airport do |airport| %>
+    <div>
+    <%= airport.label :airport_name %>
+    <%= airport.text_field  :airport_name %>
+    
+    </div>
+    <div>
+    <%= airport.submit :submit %>
+    </div>
+<% end %>
+
+
+

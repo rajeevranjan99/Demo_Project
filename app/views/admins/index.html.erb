@@ -1,0 +1,6 @@
+<h1>Admin</h1>
+<p>Hiring Manager for Airport management</p>
+<%@admin.each do |a| %>
+    <%= a.admin_name %>
+    <% end %>
+    <%= link_to "New " , new_admin_path(@admin) %>

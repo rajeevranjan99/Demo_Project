@@ -1,0 +1,38 @@
+<h1>Create New Admin</h1>
+
+<%= form_with(model: @admin) do |form| %>
+  <% if @admin.errors.any? %>
+    <div>
+      <h4><%= pluralize(@admin.errors.count, "error") %> prohibited this admin from being saved:</h4>
+      <ul>
+        <% @admin.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :admin_name %>
+    <%= form.text_field :admin_name, required: true %>
+  </div>
+
+  
+  <%= form.fields_for :manager do |manager_fields| %>
+    <div>
+      <%= manager_fields.label :manager_name %>
+      <%= manager_fields.text_field :manager_name, required: true %>
+    </div>
+
+    <%# <div>
+      <%= manager_fields.label :code %>
+      <%# <%= manager_fields.text_field :code, required: true %>
+    <%# </div> %> 
+  <% end %> 
+
+  <div>
+    <%= form.submit 'Create Admin' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', root_path %>

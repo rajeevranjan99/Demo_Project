@@ -1,0 +1,17 @@
+<h1>Airport  Home page</h1>
+
+<ul>
+  <% @airports.each do |airport| %>
+    <li>
+      <%=airport.airport_name %>
+     <%= link_to "Destroy", airports_path(@airport), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure fo cancleation?"
+                  } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Airport", new_airport_path %><br>
+<%=link_to "create_flight", new_flight_path %><br>
+<%=link_to "create_port", new_port_path %>

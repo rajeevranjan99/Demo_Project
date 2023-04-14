@@ -1,0 +1,39 @@
+<h1>Manager managed flight</h1>
+<p>Manager can scheduled the flights and manage them</p>
+<%=link_to "manager_can see flight", flights_path(@flight) %><br>
+<%=link_to "manager_can see port", ports_path(@port) %><br>
+<%=link_to "manager_can see schedule", schedules_path(@schedule) %>
+
+<h1>Managers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First_Name</th>
+      <th>Last_Name</th>
+      <th>Phone_number</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+
+  <tbody>        
+  
+    <% @managers.each do |manager| %>
+      <tr>
+        <td><%= manager.first_name %></td>
+        <td><%= manager.last_name %></td>
+        <td><%= manager.phone_number %></td>
+        <td><%= manager.address %></td>
+          <%= link_to 'Show', manager %>
+          <%= link_to 'Edit', edit_manager_path(manager) %>
+          <%= link_to 'Delete', manager, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Manager', new_manager_path %>
+<!-- app/views/managers/edit.html.erb -->
+
+

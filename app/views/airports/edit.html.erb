@@ -1,0 +1,16 @@
+<h1> edit page</h1>
+<%= form_with model: @airport do |f|%>
+    <div class="field">
+    <%= f.label :airport_name %><br />
+    <%= f.text_field :airport_name %>
+    </div>
+    <div class="field">
+        <%= f.submit :submit%>
+        </div>
+<% end %>
+<%= link_to "show" ,airport_path%>
+<%= link_to "home" ,airports_path%>
+
+
+
+

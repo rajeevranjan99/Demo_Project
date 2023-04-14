@@ -1,0 +1,12 @@
+<h1>Edit port page</h1>
+<%= form_with model: @port do |f| %>
+   <div class="field">
+    <%= f.label :port_number%><br />
+    <%= f.text_field :port_number%>
+   </div>
+    <div class="field">
+    <%= f.submit :submit%>
+    </div>
+ <% end %>
+ <%= link_to "Show" ,port_path %>
+   

@@ -1,0 +1,10 @@
+<h1>Edit</h1>
+<%= form_with(model: @admin) do |form| %>
+<div>
+    <%= form.label :admin_name %>
+    <%= form.text_field :admin_name, required: true %>
+  </div>
+<div>
+    <%= form.submit 'Create Admin' %>
+  </div>
+<% end %>

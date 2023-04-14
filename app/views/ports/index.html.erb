@@ -1,0 +1,12 @@
+<h1>Port page</h1>
+<ul>
+  <% @ports.each do |port| %>
+    <li>
+      <%= port.port_number%>
+    </li>
+  <% end %>
+</ul>
+
+<%# <%= link_to "New port", new_port_path %> %>
+<%= link_to "Airport Home",airports_path%>
+

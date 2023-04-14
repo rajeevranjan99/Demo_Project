@@ -1,0 +1,14 @@
+<h1>show airport page</h1>
+<p><%= @airport.airport_name %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_airport_path(@airport) %></li>
+  <%= link_to "Destroy", airport_path(@airport), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure ?"
+                  } %>
+  </ul>
+
+  <%=link_to "create_flight", new_flight_path %><br>
+  <%=link_to "create_port", new_port_path %><br>
+  <%=link_to "Go to index Page" ,airports_path%>

@@ -1,0 +1,30 @@
+
+<h1>Flight Schedule Page</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Flight_Name</th>
+      <th>Port_Number</th>
+      <th>Flight_id</th>
+      <th>Port_id</th>
+      <th>Arrival Time</th>
+      <th>Departure Time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @schedule.flight_name %></td>
+        <td><%= @schedule.port_number %></td>
+        <td><%= @schedule.flight_id %></td>
+        <td><%= @schedule.port_id %></td>
+        <td><%= @schedule.arrival_time.strftime("%m/%d/%Y %I:%M %p") %></td>
+        <td><%= @schedule.departure_time.strftime("%m/%d/%Y %I:%M %p") %></td>
+        <td><%= link_to "Edit", edit_schedule_path(@schedule) %></td>
+       
+      </tr>
+    
+  </tbody>
+</table>
+
+ <%= link_to "Back", schedules_path %>

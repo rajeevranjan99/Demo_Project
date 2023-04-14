@@ -1,0 +1,14 @@
+<h1>Flight page</h1>
+<ul>
+  <% @flight.each do |flight| %>
+    <li>
+      <%=flight.flight_name %>
+      <%= flight.flight_number%>
+       <%= flight.arrival_time%>
+        <%= flight.departure_time%>
+    </li>
+  <% end %>
+</ul>
+
+<%# <%= link_to "New Flight", new_flight_path %> %>
+<%= link_to "Airport Home",airports_path%>
