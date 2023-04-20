@@ -28,10 +28,9 @@ class SchedulesController < ApplicationController
     end
 
     def update
-        #@schedule = Schedule.find(params[:id])
-        @manager= current_user.manager
+        @schedule = Schedule.find(params[:id])
 
-        if @manager.schedules.update(schedule_params)
+        if @schedule.update(schedule_params)
            redirect_to schedule_path
         else
             render :edit 

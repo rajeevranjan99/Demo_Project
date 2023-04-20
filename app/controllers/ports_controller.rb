@@ -17,20 +17,14 @@ class PortsController < ApplicationController
         @port=Port.new
     end 
 
-
-    def edit 
-       # @airport = Airport.find(params[:airport_id])
-       id=cookies[:airport_info]
-       airport=Airport.find(id)      
-       @port = Port.find(params[:id])
-    end 
-
     def create 
-        id=cookies[:airport_info]
-        airport=Airport.find(id)
+        # debugger
+       
+        airport=Airport.first
+        # airport=Airtport.first
         @port = airport.ports.create(port_params) 
         if @port.save 
-            cookies[:port_info]=@port.id
+            # cookies[:port_info]=@port.id
 
             redirect_to port_path(@port) 
         else 
@@ -38,10 +32,17 @@ class PortsController < ApplicationController
         end
     end
 
+    def edit 
+       # @airport = Airport.find(params[:airport_id])
+          
+       @port = Port.find(params[:id])
+    end 
+
+    
+
 
     def update 
-        id=cookies[:airport_info]
-        airport=Airport.find(id)
+        
         #@airport = Airport.find(params[:airport_id]) 
         @port=Port.find(params[:id])
         #if airport.ports.update(port_params)
